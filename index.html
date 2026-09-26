@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Karla:ital,wght@0,400;0,600;0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202609261408">
+<link rel="stylesheet" href="style.css?v=202609261806">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -84,6 +84,11 @@
       <li><b>Volume.</b> Busy week or quiet week, against the last month.</li>
       <li><b>Launch prices.</b> Median price of recent releases. What the shelf looks like.</li>
       <li><b>Your launch window.</b> <span class="tag-paid">paid</span> Wishlisted games in your tags landing within 7 days of your date, biggest first.</li>
+      <li><b>Launch timing.</b> <span class="tag-paid">paid</span> Steam sales and Next Fest near your date, how crowded each week is, and the quietest week nearby.</li>
+      <li><b>Date changes.</b> <span class="tag-paid">paid</span> Upcoming games in your tags that moved their release date, flagged when they move into your week.</li>
+      <li><b>Benchmarks.</b> <span class="tag-paid">paid</span> Reviews after 7 and 30 days in your tags: typical, top 25%, top 10%. Know what "good" looks like.</li>
+      <li><b>What the winners share.</b> <span class="tag-paid">paid</span> Top 25% launches vs the rest: price, launch discount, demo, languages, Mac, Early Access.</li>
+      <li><b>Price vs reviews.</b> <span class="tag-paid">paid</span> Median reviews per price band, and how many launch with a discount.</li>
       <li><b>Wishlist ranks.</b> <span class="tag-paid">paid</span> Top 5 most-wishlisted upcoming games in your tags, and who's climbing.</li>
       <li><b>Momentum.</b> <span class="tag-paid">paid</span> Recent releases gaining the most reviews, with a rough sales range.</li>
       <li><b>Summary.</b> <span class="tag-paid">paid</span> Two or three sentences on what changed and if it matters to you.</li>
@@ -130,6 +135,15 @@
   </div>
 </section>
 
+<section class="wrap">
+  <span class="kicker">/ what you pay for</span>
+  <h2>One launch date decision is worth more than a year of this.</h2>
+  <p class="lede" style="max-width:40em">A bad week can cost you the first-week visibility you spent a year building wishlists for.
+  Here's what the paid email said this week, for a Cozy game launching 10 Nov 2026:</p>
+  <div class="week"><div class="stats" style="margin:0"><div class="stat"><b>6</b><span>wishlisted Cozy games land within a week of 10 Nov.</span></div><div class="stat"><b>23 Nov</b><span>starts the quietest nearby week: 0 top-wishlisted games, no big Steam event.</span></div><div class="stat"><b>12</b><span>reviews in week one puts a Cozy launch in the top 25%. Typical is 4.</span></div></div></div>
+  <p style="margin-top:16px"><a class="go-button" href="sample.html">Read the full email →</a></p>
+</section>
+
 <section class="wrap" id="pricing">
   <div class="pricing-head">
     <div><span class="kicker">/ pricing</span><h2>Start free. Upgrade when you have a date.</h2></div>
@@ -159,8 +173,11 @@
       <ul class="card-benefits">
         <li>Up to 5 tags</li>
         <li>Launch-week clashes for your date, with wishlist ranks</li>
-        <li>Top 5 most-wishlisted upcoming games, and who's climbing</li>
-        <li>Momentum: who's gaining reviews, rough sales ranges</li>
+        <li>Steam sales, Next Fest and crowded weeks around your date</li>
+        <li>Release date changes near your week</li>
+        <li>First-week and 30-day review benchmarks</li>
+        <li>What top launches share: price, discount, demo, languages</li>
+        <li>Price bands, wishlist ranks, momentum, sales ranges</li>
         <li>A short written summary</li>
       </ul>
       <form id="paid-form" novalidate>
@@ -194,6 +211,6 @@
   </div>
 </footer>
 <script>window.RADAR = {"checkout": {"free": "", "monthly": "", "yearly": ""}, "fields": {"tags": "steamtags", "launch": "launchdate"}, "contact": "contact@stanmakes.games", "root": ""};</script>
-<script src="app.js?v=202609261408" defer></script>
+<script src="app.js?v=202609261806" defer></script>
 </body>
 </html>
