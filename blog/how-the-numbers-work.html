@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Genre Radar gets its numbers · Genre Radar</title>
+<meta name="description" content="Where the data comes from, what &quot;reviews +7d&quot; means, and why the sales ranges are deliberately vague.">
+<meta property="og:title" content="How Genre Radar gets its numbers · Genre Radar">
+<meta property="og:description" content="Where the data comes from, what &quot;reviews +7d&quot; means, and why the sales ranges are deliberately vague.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://radar.stanmakes.games/blog/how-the-numbers-work.html">
+<link rel="canonical" href="https://radar.stanmakes.games/blog/how-the-numbers-work.html">
+<link rel="alternate" type="application/rss+xml" title="Genre Radar" href="../feed.xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23ffed4b'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%231f1d1a' stroke-width='2.5'/%3E%3Cpath d='M16 16 L24 9' stroke='%231f1d1a' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%231f1d1a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Karla:ital,wght@0,400;0,600;0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=202609261346">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap top">
+  <a class="logo" href="../">
+    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 3.5c7.6-.3 13.6 5.8 13.4 13.3.1 7.4-6 13.5-13.5 13.4C9.4 30.4 3.3 24.3 3.6 17 3.4 9.5 9.6 3.2 17 3.5z" fill="#ffed4b" stroke="#1f1d1a" stroke-width="2.4"/><path d="M17 9.6c4.2-.1 7.5 3.3 7.4 7.3.1 4.1-3.2 7.4-7.3 7.5-4.1 0-7.5-3.3-7.4-7.4-.1-4 3.2-7.5 7.3-7.4z" fill="none" stroke="#1f1d1a" stroke-width="1.6" stroke-dasharray="3 2.4"/><path d="M17.2 17.1 26 8.6" stroke="#1f1d1a" stroke-width="2.4" stroke-linecap="round"/><circle cx="21.5" cy="20.8" r="2.1" fill="#1f1d1a"/></svg>
+    Genre Radar
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a href="../reports/" >Reports</a>
+    <a href="../blog/" aria-current="page">Blog</a>
+    <a href="../#pricing">Pricing</a>
+    <a href="../account.html" >Account</a>
+  </nav>
+</header>
+<main id="main">
+<article class="wrap narrow">
+<h1>How Genre Radar gets its numbers</h1><p class="meta">26 Sep 2026 · Stan</p><div class="prose"><p>Every number in the Monday email comes from Steam's public store pages. Nothing is scraped from behind a login and nothing is bought from a data vendor. Here's what happens each night.</p>
+<h2>1. Find the games</h2>
+<p>For every tag someone tracks, the radar asks Steam's store search for two lists:</p>
+<ul>
+<li>the <strong>100 newest releases</strong> with that tag</li>
+<li>the <strong>100 most-wishlisted upcoming games</strong> with that tag</li>
+</ul>
+<p>Run every night, the first list catches every release. The second is what the launch-window check uses. That also means the launch check only sees upcoming games people are actually wishlisting. A game with no page views won't show up, and that's usually fine: it isn't the one you're competing with.</p>
+<h2>2. Look up the details</h2>
+<p>For each game it hasn't seen recently, the radar fetches the store details: name, release date, price, free or paid. Upcoming games are re-checked every few days because release dates move.</p>
+<h2>3. Count reviews</h2>
+<p>For every game released in the last 60 days, it saves the total review count and the share of positive reviews once a day. That daily history is where <strong>"reviews +7d"</strong> comes from: today's total minus the total a week ago.</p>
+<p>Review counts include all languages and key activations. That's why they can be higher than the number on the store page, which by default shows reviews in your language from Steam purchases only.</p>
+<h2>4. The sales range</h2>
+<p>The email shows a range like <code>3,810–7,620</code>. That's reviews × 30 to reviews × 60, a rule of thumb that's been floating around the indie scene for years. It's wrong for plenty of games. Very cheap games, free weekends and games with heavy key giveaways all break it.</p>
+<blockquote>
+<p>Treat the range as a size class. "Hundreds", "thousands", "tens of thousands". Not a figure to put in a pitch deck.</p>
+</blockquote>
+<h2>What it doesn't do</h2>
+<ul>
+<li>It doesn't know about wishlists for released games or anything from Steamworks.</li>
+<li>It doesn't guess revenue. Discounts, regional pricing and refunds make that a coin flip.</li>
+<li>It won't tell you what to make. It tells you what just happened.</li>
+</ul>
+<p>If a number looks off, reply to the email with the game's name. I'll check it.</p></div>
+<div class="callout"><div><h2>Get the Monday email</h2><p>New releases and launch-date clashes for your Steam tags.</p></div>
+<div class="news-card">
+  <span class="news-card__title">Get this every Monday</span>
+  <p class="news-card__content">One email a week about the Steam tag you care about. Free. Unsubscribe with one click.</p>
+  <form class="news-card__form" id="free-form" data-spot="post" novalidate>
+    <label for="f-email-post">Email</label>
+    <input id="f-email-post" name="email" required type="email" placeholder="you@studio.com" autocomplete="email">
+    <label for="f-tag-post">Steam tag</label>
+    <input id="f-tag-post" name="tag" required list="steam-tags" placeholder="e.g. Cozy" value="" autocomplete="off">
+    <p class="form-error" role="alert"></p>
+    <button class="news-card__button">Sign me up</button>
+    <p class="form-note">Checkout is handled by Polar. Free means free, no card.</p>
+  </form>
+  <datalist id="steam-tags"></datalist>
+</div></div>
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <span>Made by Stan in between Unity builds · <a href="https://stanmakes.games">stanmakes.games</a> · <a href="mailto:contact@stanmakes.games">contact@stanmakes.games</a></span>
+    <span>Data from public Steam store pages · UI bits from <a href="../credits.html">Uiverse.io</a> · <a href="../feed.xml">RSS</a></span>
+  </div>
+</footer>
+<script>window.RADAR = {"checkout": {"free": "", "monthly": "", "yearly": ""}, "fields": {"tags": "steamtags", "launch": "launchdate"}, "contact": "contact@stanmakes.games", "root": "../"};</script>
+<script src="../app.js?v=202609261346" defer></script>
+</body>
+</html>

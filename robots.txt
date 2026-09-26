@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://radar.stanmakes.games/sitemap.xml
