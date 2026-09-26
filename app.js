@@ -34,9 +34,13 @@
     return { tags: list.length ? out : wanted };
   }
 
-  function go(link, params, errEl) {
+  function go(link, params, errEl, plan) {
     if (!link) {
-      errEl.textContent = `Signups open very soon. Email ${cfg.contact} and I'll add you by hand.`;
+      // Checkout not live yet: open a prefilled waitlist email instead of a dead end.
+      const body = [`Email: ${params.customer_email || ""}`, `Tags: ${params[`custom_field_data.${cfg.fields.tags}`] || ""}`,
+                    `Launch date: ${params[`custom_field_data.${cfg.fields.launch}`] || "-"}`, `Plan: ${plan}`].join("\n");
+      errEl.textContent = `Checkout opens soon. Opening your mail app so you can join the waitlist (or write to ${cfg.contact}).`;
+      window.location.href = `mailto:${cfg.contact}?subject=${encodeURIComponent("Genre Radar waitlist")}&body=${encodeURIComponent(body)}`;
       return;
     }
     const u = new URL(link);
@@ -57,7 +61,7 @@
       customer_email: free.email.value.trim(),
       [`custom_field_data.${cfg.fields.tags}`]: res.tags.join(", "),
       utm_source: "site", utm_content: free.dataset.spot || "free",
-    }, err);
+    }, err, "free");
   });
 
   const paid = $("#paid-form");
@@ -73,7 +77,7 @@
       [`custom_field_data.${cfg.fields.tags}`]: res.tags.join(", "),
       [`custom_field_data.${cfg.fields.launch}`]: paid.launch.value,
       utm_source: "site", utm_content: yearly ? "yearly" : "monthly",
-    }, err);
+    }, err, yearly ? "paid, yearly" : "paid, monthly");
   });
 
   // monthly / yearly switch
